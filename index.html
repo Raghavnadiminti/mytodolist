@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width">
+    <title>Page title</title>
+    <i class="fi fi-rr-settings"></i>
+</head>
+<style>
+    body
+    {
+        border:solid red 0.5vw;
+        
+    }
+
+#screen
+{
+    width:auto;
+    height:10vw;
+    font-size:5vw;
+    white-space:nowrap;
+    overflow-x:auto;
+    text-overflow:ellipsis;
+}
+button
+{
+    margin:2vw;
+    padding-left:2vw;
+    width:8.5vw;
+    height:8.5vw;
+    border-radius:2vw;
+    border:solid black 0.2vw;
+    font-size:5vw;
+    background-color:white;
+    border-color:blue;
+    text-align:center;
+  border-shadow:0.5vw 0.5vw 1vw #7015ff;
+}
+button:hover
+{
+    background-color:#f800ff;
+    border:solid red 0.6vw ;
+}
+ 
+    #favicon{
+        font-size:5vw;
+        padding-left:80%;
+    }
+</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<body>
+    <div id="caluclator">    
+             <div id="favicon">      
+   <button id="fav"> <i class="fi fi-rr-refresh"></i> 
+<i class="fa-solid fa-arrows-rotate"></i></div></button>
+                     <div id="screen"></div>
+        
+        <div id="bttns">
+        <table id="numbers" cellspacing="2vw" cellpadding="0.4vw">
+            <tr>
+      <td>
+          <button id="1" >1</button> 
+      
+      <button id="2">2</button>
+      <button id="3">3</button>
+      
+      <button id="*">*</button>
+      
+      </td>    
+      </tr>
+      
+      
+      
+      <tr>
+      <td><button id="4" >4</button> 
+      <button id="5">5</button>
+      <button id="6">6</button>
+      <button id="+">+</button>
+      
+      
+      </td>    
+      </tr>
+      
+      
+      
+      
+      <tr>
+      <td><button id="7" >7</button> 
+      <button id="8">8</button>
+      <button id="9">9</button>
+      <button id="-">-</button>
+    
+      </td>    
+      </tr>
+      
+      
+      <tr>
+      <td><button id="0" >0</button>
+      <button id="/">/</button>
+      <button id="%">%</button>
+      <button id="=" type="submit">=</button>
+      
+      </td>    
+      </tr>                      
+        </table>
+        
+     </div>                               
+    </div>
+</body>
+<script>
+let n1=document.getElementById('1')
+let n2=document.getElementById('2')
+let   n3=document.getElementById('3')
+ let   n4=document.getElementById('4')
+ let  n5=document.getElementById('5')
+ let  n6=document.getElementById('6')
+ let  n7=document.getElementById('7')
+ let  n8=document.getElementById('8')
+ let  n9=document.getElementById('9')
+ let  nmul=document.getElementById('*')
+ let  nadd=document.getElementById('+')
+ let  nsub=document.getElementById('-')
+ let  nmod=document.getElementById('%')
+ let  ndiv=document.getElementById('/')
+ let  nsb=document.getElementById('=')
+ let nfav=document.getElementById('favicon')
+  let a=[]
+let sc=document.getElementById("screen")
+  n1.addEventListener("click",()=>{
+      a.push(1)
+      sc.innerHTML=(a.join('')) 
+      
+  })
+  
+  n2.addEventListener("click",()=>{
+      a.push(2)
+      sc.innerHTML=(a.join(''))
+  })
+  n3. addEventListener("click",()=>{
+      a.push(3)
+      sc.innerHTML=(a.join(''))
+  })
+  n4. addEventListener("click",()=>{
+      a.push(4)
+      sc.innerHTML=(a.join(''))
+  })
+ 
+   n5. addEventListener("click",()=>{
+      a.push(5)
+      sc.innerHTML=(a.join(''))
+  })
+  n6. addEventListener("click",()=>{
+      a.push(6)
+      sc.innerHTML=(a.join(''))
+  })
+  n7. addEventListener("click",()=>{
+      a.push(7)
+      sc.innerHTML=(a.join(''))
+  })
+  n8. addEventListener("click",()=>{
+      a.push(8)
+      sc.innerHTML=(a.join(''))
+  })
+  n9. addEventListener("click",()=>{
+      a.push(9)
+      sc.innerHTML=(a.join(''))
+  })
+  nadd. addEventListener("click",()=>{
+      a.push('+')
+      sc.innerHTML=(a.join(''))
+  })
+   nsub. addEventListener("click",()=>{
+      a.push('-')
+      sc.innerHTML=(a.join(''))
+  })
+  ndiv. addEventListener("click",()=>{
+      a.push('/')
+      sc.innerHTML=(a.join(''))
+  })
+  nmod. addEventListener("click",()=>{
+      a.push('%')
+      sc.innerHTML=(a.join(''))
+  })
+  
+  nsb.addEventListener("click",()=>{
+      cal(a)
+  })
+  nmul.addEventListener ('click',()=>{
+      a.push('*')
+      sc.innerHTML=a.join('')
+  })
+  
+ nfav.addEventListener("click",()=>{
+     sc.innerHTML=""
+     a=[]
+ })
+ 
+function cal(a) {
+  let ans=[]
+  let n1=0;
+    for(i of a){
+        if(i>=0&&i<=9)
+        {
+            n1*=10;
+            n1+=i;
+        }
+        else{
+            ans.push(n1)
+            ans.push(i)
+            n1=0
+        }
+        
+    }
+    ans.push(n1)
+ 
+   m=calc(ans);
+   sc.innerHTML=m
+}  
+function calc(ans) 
+{
+    try{ let s=ans.join('')
+    console.log(s)
+    let m=eval(s)
+    ans=[]
+    return m;}
+    catch(error)
+    {
+        return 'error';
+  }   
+}    
+    
+</script>
+
+</html>
