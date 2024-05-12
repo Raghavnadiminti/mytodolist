@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" initialscale="1.0">
+    <title>Page title</title>
+</head>
+<style>
+    body {
+        background-image: linear-gradient(to right, #4feeb4, #00b3ee);
+    }
+    .buttn
+    {
+        background:#ff5f55;
+        margin-left:9px;
+        margin-right:9px;
+        border:solid 2px #4feeb4;
+        border-radius:50%;
+        
+        
+        
+        
+    }
+.cd{
+    
+    padding:0px;
+    margin:0px;
+
+}
+    h1 {
+        
+        text-align:center;
+        font-family: 'Playfair Display', serif;
+        font-style: normal;
+        color: #ee001d;
+    }
+
+    #eww {
+        position:relative;
+        margin-left: 25vw;
+        margin-top: 0.2vw;
+        border-radius: 5%;
+    }
+
+    #eww:hover {
+        border: solid green 0.3vw;
+    }
+
+    #inptt {
+        margin: 3vw;
+        margin-bottom:0.2vw;
+        display: flex;
+        
+       
+       justify-content:space-between;
+       padding-top: 0.2vw;
+        width: auto;
+        height: 5vh;
+        font-size:larger;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight:100;
+        background: rgb(255, 255, 255);
+        border:solid 0.2vw #ee4f4f ;
+        border-radius:5%;
+        box-shadow:0.9vw 0.5vw #4feeb4;
+        overflow:auto;
+        
+    }
+#dark{
+    
+    opacity:0.5;
+    
+    
+}
+.spn{
+    margin:0vw;
+}
+.bt
+{ width:2vw;
+ height:6vh;
+ background:#ff80ee;
+ border-radius:50%;
+ border:solid 0.4vw #ee3800d1;
+
+ 
+ 
+}
+</style>
+<body>
+
+
+<h1 align="center">My To-Do List</h1>
+
+<input type="text" id="eww">
+<button id="btm" type="submit">ADD</button>
+
+<div id="inpt"></div>
+
+</body>
+<script>
+    
+let ew=document.getElementById("eww")
+
+
+    function add() {
+    
+const div=document.createElement("div")
+const div2=document.getElementById("inpt")
+div2.appendChild(div)
+let txt=ew.value
+ew.value=""
+if(txt=="")
+{
+    alert("empty cannot be a task")
+}
+else
+{
+div.innerHTML=
+`<div id="inptt"><input type="checkbox" class="cb"></input><span class="spn">${txt}</span><button class="bt"></button></div>`
+const y=div.querySelector(".bt")
+y.addEventListener("click",function(){
+    div2.removeChild(div)
+}) 
+let m1=div.querySelector(".cb")
+m1.addEventListener("click",function(){
+    div.setAttribute("id","dark")
+})
+let s=div.querySelector(".spn")
+s.contentEditable=true
+}
+       
+    }
+
+let x=document.getElementById("btm")
+x.addEventListener("click",add)
+
+
+
+    </script>
+</html>
